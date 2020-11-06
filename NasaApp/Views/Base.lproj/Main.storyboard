@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BVu-Ho-Bvg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BbY-tD-hdU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -96,7 +96,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eK-Pb-JFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2133" y="-321"/>
+            <point key="canvasLocation" x="2132" y="-334"/>
+        </scene>
+        <!--Camera Filters-->
+        <scene sceneID="5ym-JC-D2w">
+            <objects>
+                <tableViewController id="GST-Qs-CMo" customClass="FiltersTableViewController" customModule="NasaApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bNv-r1-jhK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cameraCellId" id="d9Z-ct-275">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d9Z-ct-275" id="ijt-Nk-r7W">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="GST-Qs-CMo" id="GCc-7M-SYE"/>
+                            <outlet property="delegate" destination="GST-Qs-CMo" id="Lvm-Q7-etD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Camera Filters" id="TTc-gF-IbQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJi-h6-JPj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4365.217391304348" y="-298.66071428571428"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XSi-j7-MSh">
@@ -218,6 +248,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXK-sY-Mb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1264" y="-334"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6k0-tB-CZZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BbY-tD-hdU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uyG-js-MPQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GST-Qs-CMo" kind="relationship" relationship="rootViewController" id="aFM-BD-awG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EaS-29-D8H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3455.072463768116" y="-298.66071428571428"/>
         </scene>
     </scenes>
     <resources>

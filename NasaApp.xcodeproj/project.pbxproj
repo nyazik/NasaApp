@@ -16,6 +16,7 @@
 		CD6FE5E82552031F0012A129 /* CuriosityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5E72552031F0012A129 /* CuriosityViewController.swift */; };
 		CD6FE5EC2552035B0012A129 /* OpportunityCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5EB2552035B0012A129 /* OpportunityCollectionViewController.swift */; };
 		CD6FE5EF255203730012A129 /* SpiritCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5EE255203730012A129 /* SpiritCollectionViewController.swift */; };
+		CD7DA4C625555E7200EA1546 /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7DA4C525555E7200EA1546 /* FiltersTableViewController.swift */; };
 		CDBF103D2552BEF50072C752 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBF103B2552BEF50072C752 /* PhotoCell.xib */; };
 		CDBF103E2552BEF50072C752 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF103C2552BEF50072C752 /* PhotoCell.swift */; };
 		CDBF105625542B370072C752 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF105525542B370072C752 /* VehicleManager.swift */; };
@@ -39,6 +40,7 @@
 		CD6FE5E72552031F0012A129 /* CuriosityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityViewController.swift; sourceTree = "<group>"; };
 		CD6FE5EB2552035B0012A129 /* OpportunityCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityCollectionViewController.swift; sourceTree = "<group>"; };
 		CD6FE5EE255203730012A129 /* SpiritCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiritCollectionViewController.swift; sourceTree = "<group>"; };
+		CD7DA4C525555E7200EA1546 /* FiltersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
 		CDBF103B2552BEF50072C752 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		CDBF103C2552BEF50072C752 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CDBF105525542B370072C752 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				CD6FE5EB2552035B0012A129 /* OpportunityCollectionViewController.swift */,
 				CD6FE5EE255203730012A129 /* SpiritCollectionViewController.swift */,
 				CDBF103C2552BEF50072C752 /* PhotoCell.swift */,
+				CD7DA4C525555E7200EA1546 /* FiltersTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				CD6FE5EC2552035B0012A129 /* OpportunityCollectionViewController.swift in Sources */,
 				CDBF106125543CBE0072C752 /* VehicleData.swift in Sources */,
 				CDBF10642554620F0072C752 /* VehicleModel.swift in Sources */,
+				CD7DA4C625555E7200EA1546 /* FiltersTableViewController.swift in Sources */,
 				CD6FE5E3255202D90012A129 /* ViewController.swift in Sources */,
 				CD6FE5CE255201B00012A129 /* AppDelegate.swift in Sources */,
 				CD6FE5D0255201B00012A129 /* SceneDelegate.swift in Sources */,
