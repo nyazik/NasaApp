@@ -40,8 +40,10 @@ class FiltersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
         //delegateCamera?.cameraSelected(cameraName: cameras[indexPath.row])
     }
     
-
+    
 }
