@@ -17,11 +17,10 @@ class SpiritCollectionViewController: UIViewController {
     var viehicleManager = ViehicleManager()
     var selectedRover = "spirit"
     var pageIndex = 1
-    var isPageRefreshing = false
+    var isLoadingMoreItems = false
     fileprivate let cellIdentifier = "PhotoCell"
-    
-    private var models: VehicleData?
-    
+    private var photos: [Photo] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +55,7 @@ class SpiritCollectionViewController: UIViewController {
 extension SpiritCollectionViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models?.photos.count ?? 0
+        return photos.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,7 +63,7 @@ extension SpiritCollectionViewController : UICollectionViewDataSource {
                 as? PhotoCell else {return UICollectionViewCell()}
         
         
-        if let rover = self.models?.photos[indexPath.item], let imageUrl = rover.img_src {
+        if let imageUrl = self.photos[indexPath.item].img_src {
             let url = URL(string: imageUrl)
             cell.iv.kf.setImage(with: url)
         }
@@ -93,16 +92,14 @@ extension SpiritCollectionViewController : UICollectionViewDataSource {
         //self.vehicleInfoViewController?.UIConfig(roverInfo:  , indexPath: indexPath)
         
         
-        if let rover = self.models?.photos[indexPath.item] {
-            //let url = URL(string: imageUrl)
+            let rover = self.photos[indexPath.item]
             let fullName = rover.camera.full_name
-            
             self.vehicleInfoViewController?.roverNameLable.text = rover.rover.name
             self.vehicleInfoViewController?.launchDateLable.text = rover.rover.launch_date
             self.vehicleInfoViewController?.LandingDateLable.text = rover.rover.landing_date
             self.vehicleInfoViewController?.cameraNameLable.text = rover.camera.name
             self.vehicleInfoViewController?.cameraFullNameLable.text = rover.camera.full_name
-        }
+        
         
         
         
@@ -115,27 +112,26 @@ extension SpiritCollectionViewController : UICollectionViewDataSource {
         self.present(self.vehicleInfoViewController!, animated: true, completion: nil)
     }
     
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//
-//        print("scrollViewDidScroll")
-//        if !isPageRefreshing {
-//            if self.collectionView.contentOffset.y >= self.collectionView.contentSize.height - self.collectionView.bounds.size.height {
-//                
-//
-//                pageIndex += 1
-//                // call API
-//                // set to true
-//                print("Fetching...")
-//
-//
-//                viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
-//                isPageRefreshing = true
-//
-//                print("fetch new results")
-//            }
-//        }
-//    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        print("scrollViewDidScroll")
+        guard !isLoadingMoreItems else { return }
+        if self.collectionView.contentOffset.y >= self.collectionView.contentSize.height - self.collectionView.bounds.size.height {
+            
+            isLoadingMoreItems = true
+            
+            pageIndex += 1
+            // call API
+            // set to true
+            print("Fetching...")
+            
+            viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
+            
+            print("fetch new results")
+        }
+        
+    }
+
     
     
     
@@ -162,11 +158,9 @@ extension SpiritCollectionViewController : UICollectionViewDelegateFlowLayout{
 
 extension SpiritCollectionViewController : VehicleManagerProtocol{
     func didUpdateVehicle(vehicle: VehicleData) {
-        
-        models = vehicle
+        isLoadingMoreItems = false
+        photos.append(contentsOf: vehicle.photos)
         collectionView.reloadData()
-        var url = vehicle
-        //print("nazik \(url)")
     }
     
     
@@ -176,6 +170,7 @@ extension SpiritCollectionViewController : VehicleManagerProtocol{
 
 extension SpiritCollectionViewController : FiltersTableViewControllerProtocol{
     func cameraSelected(cameraName: String) {
+        photos = []
         self.cameraName = cameraName
                 pageIndex = 1
         viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)

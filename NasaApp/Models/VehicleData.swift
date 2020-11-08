@@ -10,12 +10,11 @@ import Foundation
 
 
 struct VehicleData : Codable{
-    let photos: [Photos]
-    
+    var photos: [Photo]
 }
 
 
-struct Photos : Codable {
+struct Photo : Codable {
     let img_src: String?
     let camera: Camera
     var earth_date: String

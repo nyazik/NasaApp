@@ -18,8 +18,8 @@ class CuriosityViewController: UIViewController {
     var cameraName = ""
     fileprivate let cellIdentifier = "PhotoCell"
     var pageIndex = 1
-    var isPageRefreshing = false
-    private var models: VehicleData?
+    var isLoadingMoreItems = false
+    private var photos: [Photo] = []
     
     
     override func viewDidLoad() {
@@ -59,7 +59,7 @@ class CuriosityViewController: UIViewController {
 extension CuriosityViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models?.photos.count ?? 0
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -67,7 +67,7 @@ extension CuriosityViewController : UICollectionViewDataSource {
                 as? PhotoCell else {return UICollectionViewCell()}
         
         
-        if let rover = self.models?.photos[indexPath.item], let imageUrl = rover.img_src {
+        if let imageUrl = self.photos[indexPath.item].img_src {
             let url = URL(string: imageUrl)
             cell.iv.kf.setImage(with: url)
         }
@@ -79,7 +79,7 @@ extension CuriosityViewController : UICollectionViewDataSource {
         
         
         self.vehicleInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController") as? VehicleInfoViewController
-                
+        
         self.vehicleInfoViewController!.modalPresentationStyle = .popover
         
         let popover = self.vehicleInfoViewController!.popoverPresentationController
@@ -90,13 +90,12 @@ extension CuriosityViewController : UICollectionViewDataSource {
         
         self.vehicleInfoViewController?.imageView.image = cell.iv.image        
         
-        if let rover = self.models?.photos[indexPath.item] {
-            self.vehicleInfoViewController?.roverNameLable.text = rover.rover.name
-            self.vehicleInfoViewController?.launchDateLable.text = rover.rover.launch_date
-            self.vehicleInfoViewController?.LandingDateLable.text = rover.rover.landing_date
-            self.vehicleInfoViewController?.cameraNameLable.text = rover.camera.name
-            self.vehicleInfoViewController?.cameraFullNameLable.text = rover.camera.full_name
-        }
+        let rover = self.photos[indexPath.item]
+        self.vehicleInfoViewController?.roverNameLable.text = rover.rover.name
+        self.vehicleInfoViewController?.launchDateLable.text = rover.rover.launch_date
+        self.vehicleInfoViewController?.LandingDateLable.text = rover.rover.landing_date
+        self.vehicleInfoViewController?.cameraNameLable.text = rover.camera.name
+        self.vehicleInfoViewController?.cameraFullNameLable.text = rover.camera.full_name
         
         popover?.passthroughViews = [self.view]
         
@@ -110,21 +109,21 @@ extension CuriosityViewController : UICollectionViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         print("scrollViewDidScroll")
-        if !isPageRefreshing {
-            if self.collectionView.contentOffset.y >= self.collectionView.contentSize.height - self.collectionView.bounds.size.height {
-                
-                
-                pageIndex += 1
-                // call API
-                // set to true
-                print("Fetching...")
-                
-                viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
-                isPageRefreshing = true
-                
-                print("fetch new results")
-            }
+        guard !isLoadingMoreItems else { return }
+        if self.collectionView.contentOffset.y >= self.collectionView.contentSize.height - self.collectionView.bounds.size.height {
+            
+            isLoadingMoreItems = true
+            
+            pageIndex += 1
+            // call API
+            // set to true
+            print("Fetching...")
+            
+            viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
+            
+            print("fetch new results")
         }
+        
     }
     
     
@@ -151,14 +150,10 @@ extension CuriosityViewController : UICollectionViewDelegateFlowLayout{
 //MARK:- VehicleManagerProtocol
 extension CuriosityViewController : VehicleManagerProtocol{
     func didUpdateVehicle(vehicle: VehicleData) {
-        
-        models = vehicle
+        isLoadingMoreItems = false
+        photos.append(contentsOf: vehicle.photos)
         collectionView.reloadData()
-        var url = vehicle
-        //print("nazik \(url)")
     }
-    
-    
 }
 
 
@@ -166,10 +161,11 @@ extension CuriosityViewController : VehicleManagerProtocol{
 extension CuriosityViewController : FiltersTableViewControllerProtocol{
     func cameraSelected(cameraName: String) {
         self.cameraName = cameraName
-            pageIndex = 1
+        photos = []
+        pageIndex = 1
         //print(cameraName)
         viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
-
+        
     }
     
     

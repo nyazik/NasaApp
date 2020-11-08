@@ -18,15 +18,10 @@ class OpportunityCollectionViewController: UIViewController {
     var pageIndex = 1
     var isPageRefreshing = false
     fileprivate let cellIdentifier = "PhotoCell"
-    
-    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
-    
-    private var models: VehicleData?
-    
+    private var photos: [Photo] = []
+    var isLoadingMoreItems = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +58,7 @@ class OpportunityCollectionViewController: UIViewController {
 extension OpportunityCollectionViewController:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models?.photos.count ?? 0
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -71,7 +66,7 @@ extension OpportunityCollectionViewController:UICollectionViewDataSource {
                 as? PhotoCell else {return UICollectionViewCell()}
         
         
-        if let rover = self.models?.photos[indexPath.item], let imageUrl = rover.img_src {
+        if let imageUrl = self.photos[indexPath.item].img_src {
             let url = URL(string: imageUrl)
             cell.iv.kf.setImage(with: url)
         }
@@ -98,7 +93,7 @@ extension OpportunityCollectionViewController:UICollectionViewDataSource {
         //self.vehicleInfoViewController?.UIConfig(roverInfo:  , indexPath: indexPath)
         
         
-        if let rover = self.models?.photos[indexPath.item] {
+        let rover = self.photos[indexPath.item]
             //let url = URL(string: imageUrl)
             let fullName = rover.camera.full_name
             
@@ -108,7 +103,7 @@ extension OpportunityCollectionViewController:UICollectionViewDataSource {
             self.vehicleInfoViewController?.LandingDateLable.text = rover.rover.landing_date
             self.vehicleInfoViewController?.cameraNameLable.text = rover.camera.name
             self.vehicleInfoViewController?.cameraFullNameLable.text = rover.camera.full_name
-        }
+        
         
         popover?.passthroughViews = [self.view]
         //popover?.sourceRect = CGRect(x: 250, y: 500, width: 0, height: 0)
@@ -119,27 +114,26 @@ extension OpportunityCollectionViewController:UICollectionViewDataSource {
         self.present(self.vehicleInfoViewController!, animated: true, completion: nil)
     }
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        
-//        print("scrollViewDidScroll")
-//        if !isPageRefreshing {
-//            if self.collectionView.contentOffset.y >= self.collectionView.contentSize.height - self.collectionView.bounds.size.height {
-//                
-//                
-//                pageIndex += 1
-//                // call API
-//                // set to true
-//                print("Fetching...")
-//                
-//                
-//                viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
-//                isPageRefreshing = true
-//                
-//                print("fetch new results")
-//            }
-//        }
-//    }
-    
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        print("scrollViewDidScroll")
+        guard !isLoadingMoreItems else { return }
+        if self.collectionView.contentOffset.y >= self.collectionView.contentSize.height - self.collectionView.bounds.size.height {
+            
+            isLoadingMoreItems = true
+            
+            pageIndex += 1
+            // call API
+            // set to true
+            print("Fetching...")
+            
+            viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
+            
+            print("fetch new results")
+        }
+        
+    }
     
     
     
@@ -168,11 +162,9 @@ extension OpportunityCollectionViewController: UICollectionViewDelegateFlowLayou
 
 extension OpportunityCollectionViewController: VehicleManagerProtocol{
     func didUpdateVehicle(vehicle: VehicleData) {
-        
-        models = vehicle
+        isLoadingMoreItems = false
+        photos.append(contentsOf: vehicle.photos)
         collectionView.reloadData()
-        var url = vehicle
-        //print("nazik \(url)")
     }
     
     
@@ -181,6 +173,7 @@ extension OpportunityCollectionViewController: VehicleManagerProtocol{
 
 extension OpportunityCollectionViewController : FiltersTableViewControllerProtocol{
     func cameraSelected(cameraName: String) {
+        photos = []
         self.cameraName = cameraName
                 pageIndex = 1
         viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
