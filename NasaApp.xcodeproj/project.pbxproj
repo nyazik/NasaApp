@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD169CEB2556B56A00692DC3 /* VehicleInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD169CEA2556B56A00692DC3 /* VehicleInfoViewController.swift */; };
 		CD6FE5CE255201B00012A129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5CD255201B00012A129 /* AppDelegate.swift */; };
 		CD6FE5D0255201B00012A129 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5CF255201B00012A129 /* SceneDelegate.swift */; };
 		CD6FE5D5255201B00012A129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6FE5D3255201B00012A129 /* Main.storyboard */; };
@@ -21,7 +22,6 @@
 		CDBF103E2552BEF50072C752 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF103C2552BEF50072C752 /* PhotoCell.swift */; };
 		CDBF105625542B370072C752 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF105525542B370072C752 /* VehicleManager.swift */; };
 		CDBF106125543CBE0072C752 /* VehicleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF106025543CBE0072C752 /* VehicleData.swift */; };
-		CDBF10642554620F0072C752 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF10632554620F0072C752 /* VehicleModel.swift */; };
 		E8C98F242EA9B9C083B57106 /* Pods_NasaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 901D77D8E204796E0CCD9C78 /* Pods_NasaApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +29,7 @@
 		5C8000577D171FE17CF20D9C /* Pods-NasaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.release.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.release.xcconfig"; sourceTree = "<group>"; };
 		901D77D8E204796E0CCD9C78 /* Pods_NasaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EAF329409E2E4F1B7442FC /* Pods-NasaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.debug.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CD169CEA2556B56A00692DC3 /* VehicleInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleInfoViewController.swift; sourceTree = "<group>"; };
 		CD6FE5CA255201B00012A129 /* NasaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6FE5CD255201B00012A129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD6FE5CF255201B00012A129 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		CDBF103C2552BEF50072C752 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CDBF105525542B370072C752 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
 		CDBF106025543CBE0072C752 /* VehicleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleData.swift; sourceTree = "<group>"; };
-		CDBF10632554620F0072C752 /* VehicleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +119,7 @@
 				CD6FE5EE255203730012A129 /* SpiritCollectionViewController.swift */,
 				CDBF103C2552BEF50072C752 /* PhotoCell.swift */,
 				CD7DA4C525555E7200EA1546 /* FiltersTableViewController.swift */,
+				CD169CEA2556B56A00692DC3 /* VehicleInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -137,7 +138,6 @@
 			children = (
 				CDBF105525542B370072C752 /* VehicleManager.swift */,
 				CDBF106025543CBE0072C752 /* VehicleData.swift */,
-				CDBF10632554620F0072C752 /* VehicleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 				CDBF105625542B370072C752 /* VehicleManager.swift in Sources */,
 				CD6FE5EC2552035B0012A129 /* OpportunityCollectionViewController.swift in Sources */,
 				CDBF106125543CBE0072C752 /* VehicleData.swift in Sources */,
-				CDBF10642554620F0072C752 /* VehicleModel.swift in Sources */,
+				CD169CEB2556B56A00692DC3 /* VehicleInfoViewController.swift in Sources */,
 				CD7DA4C625555E7200EA1546 /* FiltersTableViewController.swift in Sources */,
 				CD6FE5E3255202D90012A129 /* ViewController.swift in Sources */,
 				CD6FE5CE255201B00012A129 /* AppDelegate.swift in Sources */,

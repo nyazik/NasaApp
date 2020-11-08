@@ -11,7 +11,7 @@ import Foundation
 
 struct VehicleData : Codable{
     let photos: [Photos]
-  
+    
 }
 
 
@@ -34,7 +34,7 @@ struct Rover : Codable {
     var name: String
     var landing_date: String
     var launch_date: String
-//    var status : Status
+    //    var status : Status
 }
 
 
