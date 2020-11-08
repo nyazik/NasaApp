@@ -36,7 +36,9 @@ class CuriosityViewController: UIViewController {
         
         viehicleManager.delegate = self
         viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
-
+        
+        
+        
     }
     
     

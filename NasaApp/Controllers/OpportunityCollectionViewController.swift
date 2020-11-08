@@ -19,9 +19,11 @@ class OpportunityCollectionViewController: UIViewController {
     var isPageRefreshing = false
     fileprivate let cellIdentifier = "PhotoCell"
     
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    
     
     private var models: VehicleData?
     

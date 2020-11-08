@@ -43,6 +43,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="ce0-4k-Cvb">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3.decrease.circle.fill" catalog="system" id="l7U-7e-GbF">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                    <color key="value" red="0.41192153100000001" green="0.6181896925" blue="0.72682529689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="FilteringOptionAction:" destination="8b8-GZ-M3g" id="Vlv-db-8Iq"/>
                             </connections>
@@ -92,6 +97,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="pnc-Bl-Piz">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3.decrease.circle.fill" catalog="system" id="OR9-nS-aUd">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                    <color key="value" red="0.41192153100000001" green="0.6181896925" blue="0.72682529689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="FilteringOptionAction:" destination="Hlq-MV-lBk" id="f0C-xb-ieF"/>
                             </connections>
@@ -113,6 +123,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bNv-r1-jhK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nasa" id="MsE-XY-RlY">
+                            <rect key="frame" x="0.0" y="117" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cameraCellId" id="d9Z-ct-275">
                                 <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
@@ -129,7 +143,13 @@
                             <outlet property="delegate" destination="GST-Qs-CMo" id="Lvm-Q7-etD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Camera Filters" id="TTc-gF-IbQ"/>
+                    <navigationItem key="navigationItem" title="Camera Filters" id="TTc-gF-IbQ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.41192153100000001" green="0.6181896925" blue="0.72682529689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJi-h6-JPj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,6 +164,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.41192153100000001" green="0.6181896925" blue="0.72682529689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="uwh-iE-jSl" kind="relationship" relationship="viewControllers" id="pqI-f2-JjW"/>
@@ -190,6 +218,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="tAl-20-Qp8">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3.decrease.circle.fill" catalog="system" id="RKs-wD-dWR">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                    <color key="value" red="0.41192153100000001" green="0.6181896925" blue="0.72682529689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="FilteringOptionAction:" destination="g0G-wk-oda" id="3W9-6q-glK"/>
                             </connections>
@@ -222,7 +255,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vWg-at-SKZ">
-                                        <rect key="frame" x="10" y="500" width="394" height="318"/>
+                                        <rect key="frame" x="10" y="500" width="394" height="154.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="opZ-OZ-qVa">
                                                 <rect key="frame" x="0.0" y="0.0" width="332.5" height="154.5"/>
@@ -296,6 +329,9 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nasa" translatesAutoresizingMaskIntoConstraints="NO" id="6BS-aD-EGq">
+                                        <rect key="frame" x="0.0" y="754.5" width="414" height="63.5"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="nkS-3z-ABh" firstAttribute="leading" secondItem="WUe-Gb-oWV" secondAttribute="leading" id="Wur-RP-d12"/>
@@ -329,7 +365,7 @@
         <scene sceneID="5uK-cd-ywD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uwh-iE-jSl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Opportunity" id="uSE-hp-JlX"/>
+                    <tabBarItem key="tabBarItem" title="Opportunity" image="v1" id="uSE-hp-JlX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kex-ZU-JOT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -349,7 +385,7 @@
         <scene sceneID="82g-kd-Gu9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sLP-wf-KQL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Curiosity" id="7Kz-ad-PuW"/>
+                    <tabBarItem key="tabBarItem" title="Curiosity" image="v2" id="7Kz-ad-PuW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wim-GZ-Mkg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -369,7 +405,7 @@
         <scene sceneID="ofb-UO-rTW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EjO-zf-3dC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Spirit" id="exV-dB-0Ir"/>
+                    <tabBarItem key="tabBarItem" title="Spirit" image="v3" id="exV-dB-0Ir"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PnH-7h-c1h">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -394,6 +430,12 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.41192153100000001" green="0.6181896925" blue="0.72682529689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.41192153100000001" green="0.6181896925" blue="0.72682529689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -407,6 +449,10 @@
     </scenes>
     <resources>
         <image name="line.horizontal.3.decrease.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="nasa" width="1101" height="909"/>
+        <image name="v1" width="30" height="30"/>
+        <image name="v2" width="30" height="30"/>
+        <image name="v3" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
