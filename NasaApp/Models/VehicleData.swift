@@ -7,19 +7,15 @@
 
 import Foundation
 
-
-
 struct VehicleData : Codable{
     var photos: [Photo]
 }
-
 
 struct Photo : Codable {
     let img_src: String?
     let camera: Camera
     var earth_date: String
     var rover: Rover
-    
 }
 
 struct Camera: Codable {
@@ -27,13 +23,10 @@ struct Camera: Codable {
     var full_name: String
 }
 
-
-
 struct Rover : Codable {
     var name: String
     var landing_date: String
     var launch_date: String
-    //    var status : Status
 }
 
 

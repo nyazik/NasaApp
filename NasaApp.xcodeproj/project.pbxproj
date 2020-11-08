@@ -7,27 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D316B0956BAD2EE8450E77C /* Pods_NasaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8D79D864161FC6DA2C1159 /* Pods_NasaApp.framework */; };
+		917B2B901777CA26471DC116 /* Pods_NasaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B2767019A5A35EB09B9C5C /* Pods_NasaApp.framework */; };
 		CD169CEB2556B56A00692DC3 /* VehicleInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD169CEA2556B56A00692DC3 /* VehicleInfoViewController.swift */; };
+		CD65FCB4255866EA001464D7 /* VehicleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF105525542B370072C752 /* VehicleProvider.swift */; };
 		CD6FE5CE255201B00012A129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5CD255201B00012A129 /* AppDelegate.swift */; };
 		CD6FE5D0255201B00012A129 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5CF255201B00012A129 /* SceneDelegate.swift */; };
 		CD6FE5D5255201B00012A129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6FE5D3255201B00012A129 /* Main.storyboard */; };
 		CD6FE5D7255201B30012A129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD6FE5D6255201B30012A129 /* Assets.xcassets */; };
 		CD6FE5DA255201B30012A129 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6FE5D8255201B30012A129 /* LaunchScreen.storyboard */; };
-		CD6FE5E3255202D90012A129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5E2255202D90012A129 /* ViewController.swift */; };
-		CD6FE5E82552031F0012A129 /* CuriosityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5E72552031F0012A129 /* CuriosityViewController.swift */; };
-		CD6FE5EC2552035B0012A129 /* OpportunityCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5EB2552035B0012A129 /* OpportunityCollectionViewController.swift */; };
-		CD6FE5EF255203730012A129 /* SpiritCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5EE255203730012A129 /* SpiritCollectionViewController.swift */; };
+		CD6FE5E3255202D90012A129 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FE5E2255202D90012A129 /* TabbarViewController.swift */; };
 		CD7DA4C625555E7200EA1546 /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7DA4C525555E7200EA1546 /* FiltersTableViewController.swift */; };
-		CDBF103D2552BEF50072C752 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBF103B2552BEF50072C752 /* PhotoCell.xib */; };
+		CDA2359E25585D1C000C065C /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2359D25585D1C000C065C /* VehicleViewController.swift */; };
+		CDA235A625586104000C065C /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBF103B2552BEF50072C752 /* PhotoCell.xib */; };
 		CDBF103E2552BEF50072C752 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF103C2552BEF50072C752 /* PhotoCell.swift */; };
-		CDBF105625542B370072C752 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF105525542B370072C752 /* VehicleManager.swift */; };
 		CDBF106125543CBE0072C752 /* VehicleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF106025543CBE0072C752 /* VehicleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3C8D79D864161FC6DA2C1159 /* Pods_NasaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8783B6E7F82E581003D2939F /* Pods-NasaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.release.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.release.xcconfig"; sourceTree = "<group>"; };
+		0F476BF8311C67060AB378F5 /* Pods-NasaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.debug.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		50B2767019A5A35EB09B9C5C /* Pods_NasaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD169CEA2556B56A00692DC3 /* VehicleInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleInfoViewController.swift; sourceTree = "<group>"; };
 		CD6FE5CA255201B00012A129 /* NasaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6FE5CD255201B00012A129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,16 +34,14 @@
 		CD6FE5D6255201B30012A129 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD6FE5D9255201B30012A129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD6FE5DB255201B30012A129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD6FE5E2255202D90012A129 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CD6FE5E72552031F0012A129 /* CuriosityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityViewController.swift; sourceTree = "<group>"; };
-		CD6FE5EB2552035B0012A129 /* OpportunityCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityCollectionViewController.swift; sourceTree = "<group>"; };
-		CD6FE5EE255203730012A129 /* SpiritCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiritCollectionViewController.swift; sourceTree = "<group>"; };
+		CD6FE5E2255202D90012A129 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		CD7DA4C525555E7200EA1546 /* FiltersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
+		CDA2359D25585D1C000C065C /* VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 		CDBF103B2552BEF50072C752 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		CDBF103C2552BEF50072C752 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
-		CDBF105525542B370072C752 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
+		CDBF105525542B370072C752 /* VehicleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleProvider.swift; sourceTree = "<group>"; };
 		CDBF106025543CBE0072C752 /* VehicleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleData.swift; sourceTree = "<group>"; };
-		F8FEAE5FDC2B8417D345B8C1 /* Pods-NasaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.debug.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		EF8BF5C59387A213BF94D206 /* Pods-NasaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.release.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +49,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D316B0956BAD2EE8450E77C /* Pods_NasaApp.framework in Frameworks */,
+				917B2B901777CA26471DC116 /* Pods_NasaApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24E8628D5EA4198693ACEE04 /* Frameworks */ = {
+		A5B75F3DBE0FD8E510A2B9D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C8D79D864161FC6DA2C1159 /* Pods_NasaApp.framework */,
+				50B2767019A5A35EB09B9C5C /* Pods_NasaApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -71,10 +67,18 @@
 		BBD66944B1978BFC8B9D3CFF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F8FEAE5FDC2B8417D345B8C1 /* Pods-NasaApp.debug.xcconfig */,
-				8783B6E7F82E581003D2939F /* Pods-NasaApp.release.xcconfig */,
+				0F476BF8311C67060AB378F5 /* Pods-NasaApp.debug.xcconfig */,
+				EF8BF5C59387A213BF94D206 /* Pods-NasaApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CD65FCAC25586604001464D7 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				CDBF105525542B370072C752 /* VehicleProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		CD6FE5C1255201B00012A129 = {
@@ -83,7 +87,7 @@
 				CD6FE5CC255201B00012A129 /* NasaApp */,
 				CD6FE5CB255201B00012A129 /* Products */,
 				BBD66944B1978BFC8B9D3CFF /* Pods */,
-				24E8628D5EA4198693ACEE04 /* Frameworks */,
+				A5B75F3DBE0FD8E510A2B9D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,7 +105,9 @@
 				CD6FE5CD255201B00012A129 /* AppDelegate.swift */,
 				CD6FE5CF255201B00012A129 /* SceneDelegate.swift */,
 				CD6FE5E5255202EB0012A129 /* Controllers */,
-				CDBF10402552BEFD0072C752 /* Views */,
+				CDA235A425586039000C065C /* Cells */,
+				CDBF10402552BEFD0072C752 /* StoryBoards */,
+				CD65FCAC25586604001464D7 /* Providers */,
 				CDBF10462552D8090072C752 /* Models */,
 				CD6FE5D6255201B30012A129 /* Assets.xcassets */,
 				CD6FE5D8255201B30012A129 /* LaunchScreen.storyboard */,
@@ -113,30 +119,34 @@
 		CD6FE5E5255202EB0012A129 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CD6FE5E2255202D90012A129 /* ViewController.swift */,
-				CD6FE5E72552031F0012A129 /* CuriosityViewController.swift */,
-				CD6FE5EB2552035B0012A129 /* OpportunityCollectionViewController.swift */,
-				CD6FE5EE255203730012A129 /* SpiritCollectionViewController.swift */,
-				CDBF103C2552BEF50072C752 /* PhotoCell.swift */,
+				CD6FE5E2255202D90012A129 /* TabbarViewController.swift */,
 				CD7DA4C525555E7200EA1546 /* FiltersTableViewController.swift */,
 				CD169CEA2556B56A00692DC3 /* VehicleInfoViewController.swift */,
+				CDA2359D25585D1C000C065C /* VehicleViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		CDBF10402552BEFD0072C752 /* Views */ = {
+		CDA235A425586039000C065C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CDBF103C2552BEF50072C752 /* PhotoCell.swift */,
 				CDBF103B2552BEF50072C752 /* PhotoCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CDBF10402552BEFD0072C752 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
 				CD6FE5D3255201B00012A129 /* Main.storyboard */,
 			);
-			path = Views;
+			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 		CDBF10462552D8090072C752 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CDBF105525542B370072C752 /* VehicleManager.swift */,
 				CDBF106025543CBE0072C752 /* VehicleData.swift */,
 			);
 			path = Models;
@@ -149,11 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD6FE5DE255201B30012A129 /* Build configuration list for PBXNativeTarget "NasaApp" */;
 			buildPhases = (
-				194913800FA342F11C3B28D9 /* [CP] Check Pods Manifest.lock */,
+				1775C74A4ABE03334EF1C47A /* [CP] Check Pods Manifest.lock */,
 				CD6FE5C6255201B00012A129 /* Sources */,
 				CD6FE5C7255201B00012A129 /* Frameworks */,
 				CD6FE5C8255201B00012A129 /* Resources */,
-				BCDF658E89EBB129CF9B3F30 /* [CP] Embed Pods Frameworks */,
+				ADCF3CF2AF3C48C63C82AE09 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,7 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDBF103D2552BEF50072C752 /* PhotoCell.xib in Resources */,
+				CDA235A625586104000C065C /* PhotoCell.xib in Resources */,
 				CD6FE5DA255201B30012A129 /* LaunchScreen.storyboard in Resources */,
 				CD6FE5D7255201B30012A129 /* Assets.xcassets in Resources */,
 				CD6FE5D5255201B00012A129 /* Main.storyboard in Resources */,
@@ -211,7 +221,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		194913800FA342F11C3B28D9 /* [CP] Check Pods Manifest.lock */ = {
+		1775C74A4ABE03334EF1C47A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -233,7 +243,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BCDF658E89EBB129CF9B3F30 /* [CP] Embed Pods Frameworks */ = {
+		ADCF3CF2AF3C48C63C82AE09 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,16 +268,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDBF103E2552BEF50072C752 /* PhotoCell.swift in Sources */,
-				CDBF105625542B370072C752 /* VehicleManager.swift in Sources */,
-				CD6FE5EC2552035B0012A129 /* OpportunityCollectionViewController.swift in Sources */,
+				CDA2359E25585D1C000C065C /* VehicleViewController.swift in Sources */,
 				CDBF106125543CBE0072C752 /* VehicleData.swift in Sources */,
+				CD65FCB4255866EA001464D7 /* VehicleProvider.swift in Sources */,
 				CD169CEB2556B56A00692DC3 /* VehicleInfoViewController.swift in Sources */,
 				CD7DA4C625555E7200EA1546 /* FiltersTableViewController.swift in Sources */,
-				CD6FE5E3255202D90012A129 /* ViewController.swift in Sources */,
+				CD6FE5E3255202D90012A129 /* TabbarViewController.swift in Sources */,
 				CD6FE5CE255201B00012A129 /* AppDelegate.swift in Sources */,
 				CD6FE5D0255201B00012A129 /* SceneDelegate.swift in Sources */,
-				CD6FE5E82552031F0012A129 /* CuriosityViewController.swift in Sources */,
-				CD6FE5EF255203730012A129 /* SpiritCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +419,7 @@
 		};
 		CD6FE5DF255201B30012A129 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8FEAE5FDC2B8417D345B8C1 /* Pods-NasaApp.debug.xcconfig */;
+			baseConfigurationReference = 0F476BF8311C67060AB378F5 /* Pods-NasaApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -431,7 +439,7 @@
 		};
 		CD6FE5E0255201B30012A129 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8783B6E7F82E581003D2939F /* Pods-NasaApp.release.xcconfig */;
+			baseConfigurationReference = EF8BF5C59387A213BF94D206 /* Pods-NasaApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

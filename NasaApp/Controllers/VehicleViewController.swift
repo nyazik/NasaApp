@@ -8,24 +8,36 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import NVActivityIndicatorView
 
-class OpportunityCollectionViewController: UIViewController {
+
+class VehicleViewController: UIViewController {
     
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    lazy var indicator = NVActivityIndicatorView(frame: .init(x: view.center.x - 25, y: self.view.center.y - 25, width: 50, height: 50), color: .black)
+
     var vehicleInfoViewController: VehicleInfoViewController?
     var cameraName = ""
-    var viehicleManager = ViehicleManager()
-    var selectedRover = "opportunity"
+    var viehicleManager = VehicleProvider()
+    var selectedRover = ""
     var pageIndex = 1
     var isPageRefreshing = false
     fileprivate let cellIdentifier = "PhotoCell"
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    @IBOutlet weak var collectionView: UICollectionView!
+    
     private var photos: [Photo] = []
     var isLoadingMoreItems = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        view.addSubview(indicator)
+        setupCollectionView()
+        fetchPhotos()
+    }
+    
+    func setupCollectionView() {
         collectionView.backgroundColor = .white
         
         collectionView.dataSource = self
@@ -34,28 +46,34 @@ class OpportunityCollectionViewController: UIViewController {
         collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil ), forCellWithReuseIdentifier: cellIdentifier)
         
         collectionView.alwaysBounceVertical = true
-        
-        viehicleManager.delegate = self
-        viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
-        
-        
     }
     
+    func fetchPhotos() {
+        print("Fetching...")
+        indicator.startAnimating()
+        viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex) { photos in
+            self.updatePhotosAfterFetching(photos)
+            self.indicator.stopAnimating()
+        }
+    }
+    
+    func updatePhotosAfterFetching(_ photos: [Photo]) {
+        isLoadingMoreItems = false
+        self.photos.append(contentsOf: photos)
+        collectionView.reloadData()
+    }
     
     @IBAction func FilteringOptionAction(_ sender: Any) {
-        
         let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "filterTableView") as! FiltersTableViewController
         next.delegate = self
-        
         self.navigationController?.pushViewController(next, animated: true)
     }
-    
     
 }
 
 
 //MARK:- UICollectionViewDataSource
-extension OpportunityCollectionViewController:UICollectionViewDataSource {
+extension VehicleViewController:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -68,84 +86,45 @@ extension OpportunityCollectionViewController:UICollectionViewDataSource {
         
         if let imageUrl = self.photos[indexPath.item].img_src {
             let url = URL(string: imageUrl)
-            cell.iv.kf.setImage(with: url)
+            cell.imageView.kf.setImage(with: url)
         }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-        self.vehicleInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController") as? VehicleInfoViewController
-        
-        //GalleryCollectionViewCell
-        
-        self.vehicleInfoViewController!.modalPresentationStyle = .popover
+        vehicleInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController") as? VehicleInfoViewController
+        vehicleInfoViewController!.modalPresentationStyle = .popover
         
         let popover = self.vehicleInfoViewController!.popoverPresentationController
         
         let cell = self.collectionView.cellForItem(at: indexPath) as! PhotoCell
         let _ = vehicleInfoViewController?.view
         
-        
-        self.vehicleInfoViewController?.imageView.image = cell.iv.image
-        //self.vehicleInfoViewController?.UIConfig(roverInfo:  , indexPath: indexPath)
-        
-        
+        vehicleInfoViewController?.imageView.image = cell.imageView.image
+                
         let rover = self.photos[indexPath.item]
-            //let url = URL(string: imageUrl)
-            let fullName = rover.camera.full_name
-            
-            //self.vehicleInfoViewController?.roverNameLable.text = fullName
-            self.vehicleInfoViewController?.roverNameLable.text = rover.rover.name
-            self.vehicleInfoViewController?.launchDateLable.text = rover.rover.launch_date
-            self.vehicleInfoViewController?.LandingDateLable.text = rover.rover.landing_date
-            self.vehicleInfoViewController?.cameraNameLable.text = rover.camera.name
-            self.vehicleInfoViewController?.cameraFullNameLable.text = rover.camera.full_name
-        
-        
-        popover?.passthroughViews = [self.view]
-        //popover?.sourceRect = CGRect(x: 250, y: 500, width: 0, height: 0)
-        //self.vehicleInfoViewController!.preferredContentSize = CGSize(width: 250, height: 419)
+        vehicleInfoViewController?.populate(with: rover)
         
         popover!.sourceView = self.view
-        
-        self.present(self.vehicleInfoViewController!, animated: true, completion: nil)
+        present(self.vehicleInfoViewController!, animated: true, completion: nil)
     }
     
-
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         print("scrollViewDidScroll")
         guard !isLoadingMoreItems else { return }
-        if self.collectionView.contentOffset.y >= self.collectionView.contentSize.height - self.collectionView.bounds.size.height {
-            
-            isLoadingMoreItems = true
-            
-            pageIndex += 1
-            // call API
-            // set to true
-            print("Fetching...")
-            
-            viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
-            
-            print("fetch new results")
-        }
+        if collectionView.contentOffset.y >= collectionView.contentSize.height - collectionView.bounds.size.height {
         
+            isLoadingMoreItems = true
+            pageIndex += 1
+            fetchPhotos()
+        }
     }
-    
-    
     
 }
 
-
-
-
-
-
 //MARK:- UICollectionViewDelegateFlowLayout
-extension OpportunityCollectionViewController: UICollectionViewDelegateFlowLayout{
+extension VehicleViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         
@@ -155,30 +134,13 @@ extension OpportunityCollectionViewController: UICollectionViewDelegateFlowLayou
         width = width > 200 ? 200 : width
         return CGSize.init(width: width, height: width)
     }
-    
-    
 }
 
-
-extension OpportunityCollectionViewController: VehicleManagerProtocol{
-    func didUpdateVehicle(vehicle: VehicleData) {
-        isLoadingMoreItems = false
-        photos.append(contentsOf: vehicle.photos)
-        collectionView.reloadData()
-    }
-    
-    
-}
-
-
-extension OpportunityCollectionViewController : FiltersTableViewControllerProtocol{
+extension VehicleViewController : FiltersTableViewControllerProtocol{
     func cameraSelected(cameraName: String) {
         photos = []
         self.cameraName = cameraName
-                pageIndex = 1
-        viehicleManager.fetch(roverName: selectedRover, cameraName: cameraName, pageIndex: pageIndex)
-
+        pageIndex = 1
+        fetchPhotos()
     }
-    
-    
 }

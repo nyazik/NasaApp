@@ -9,4 +9,6 @@ target 'NasaApp' do
   pod 'Alamofire', '~> 5.2'
   pod 'Kingfisher'
   pod 'CLTypingLabel'
+  pod 'NVActivityIndicatorView'
+
 end
