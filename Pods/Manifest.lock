@@ -1,22 +1,26 @@
 PODS:
   - Alamofire (5.4.0)
+  - CLTypingLabel (0.4.0)
   - Kingfisher (5.15.7):
     - Kingfisher/Core (= 5.15.7)
   - Kingfisher/Core (5.15.7)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - CLTypingLabel
   - Kingfisher
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CLTypingLabel
     - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  CLTypingLabel: 95a7d1faf7e3d1d952cd11cb0491d17d80c50934
   Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
 
-PODFILE CHECKSUM: b53c848dbe255048e0ebf11c1f1fd10e13799185
+PODFILE CHECKSUM: 64a6a215d137357ca376b06e2adcfae7d89e5e76
 
 COCOAPODS: 1.10.0

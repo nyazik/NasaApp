@@ -6,19 +6,19 @@
 //
 
 import UIKit
-
+import CLTypingLabel
 
 class VehicleInfoViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var roverNameLable: UILabel!
+    @IBOutlet weak var roverNameLable: CLTypingLabel!
     
     @IBOutlet weak var launchDateLable: UILabel!
     
     @IBOutlet weak var LandingDateLable: UILabel!
     
-    @IBOutlet weak var statusLable: UILabel!
+    //@IBOutlet weak var statusLable: UILabel!
     
     @IBOutlet weak var cameraNameLable: UILabel!
     
@@ -39,6 +39,8 @@ class VehicleInfoViewController: UIViewController {
         //statusLable.text = roverInfo.photos[indexPath.row].rover.status.rawValue
         cameraNameLable.text = roverInfo.photos[indexPath.row].camera.name
         cameraFullNameLable.text = roverInfo.photos[indexPath.row].camera.full_name
+//        roverNameLable.text = roverInfo.photos[indexPath.row].rover.name
+        
         
     }
     
