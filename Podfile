@@ -8,5 +8,4 @@ target 'NasaApp' do
   # Pods for NasaApp
   pod 'Alamofire', '~> 5.2'
   pod 'Kingfisher'
-
 end

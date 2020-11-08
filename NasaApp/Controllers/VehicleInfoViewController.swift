@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class VehicleInfoViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
