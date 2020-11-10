@@ -25,6 +25,8 @@ class VehicleViewController: UIViewController {
     var pageIndex = 1
     var isPageRefreshing = false
     fileprivate let cellIdentifier = "PhotoCell"
+    let vehicleInfoStoryboardID = "PopoverViewController"
+    let filterTableStoryboardID = "filterTableView"
     
     private var photos: [Photo] = []
     var isLoadingMoreItems = false
@@ -35,16 +37,16 @@ class VehicleViewController: UIViewController {
         view.addSubview(indicator)
         setupCollectionView()
         fetchPhotos()
+        
+        
+        
     }
     
     func setupCollectionView() {
         collectionView.backgroundColor = .white
-        
         collectionView.dataSource = self
         collectionView.delegate = self
-        
         collectionView.register(UINib.init(nibName: cellIdentifier, bundle: nil ), forCellWithReuseIdentifier: cellIdentifier)
-        
         collectionView.alwaysBounceVertical = true
     }
     
@@ -64,7 +66,7 @@ class VehicleViewController: UIViewController {
     }
     
     @IBAction func FilteringOptionAction(_ sender: Any) {
-        let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "filterTableView") as! FiltersTableViewController
+        let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: filterTableStoryboardID) as! FiltersTableViewController
         next.delegate = self
         self.navigationController?.pushViewController(next, animated: true)
     }
@@ -93,7 +95,8 @@ extension VehicleViewController:UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        vehicleInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController") as? VehicleInfoViewController
+        
+        vehicleInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: vehicleInfoStoryboardID) as? VehicleInfoViewController
         vehicleInfoViewController!.modalPresentationStyle = .popover
         
         let popover = self.vehicleInfoViewController!.popoverPresentationController

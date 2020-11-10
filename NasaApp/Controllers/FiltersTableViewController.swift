@@ -12,7 +12,7 @@ protocol FiltersTableViewControllerProtocol {
 }
 
 class FiltersTableViewController: UITableViewController {
-    
+    let cameraCellId = "cameraCellId"
     var delegate : FiltersTableViewControllerProtocol?
     
     var cameras: [String] = ["FHAZ","RHAZ","MAST","CHEMCAM","MAHLI","MARDI","NAVCAM","PANCAM","MINITES"]
@@ -28,7 +28,7 @@ class FiltersTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cameraCellId", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cameraCellId, for: indexPath)
         cell.textLabel?.text = cameras[indexPath.row]
         return cell
     }
